@@ -41,7 +41,7 @@ namespace Empleados
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.BtnNuevo = new System.Windows.Forms.Button();
             this.BtnBorrar = new System.Windows.Forms.Button();
-            this.BtnGuardar = new System.Windows.Forms.Button();
+            this.BtnActualizar = new System.Windows.Forms.Button();
             this.BtnAbajo = new System.Windows.Forms.Button();
             this.BtnArriba = new System.Windows.Forms.Button();
             this.BtnSalir = new System.Windows.Forms.Button();
@@ -190,17 +190,17 @@ namespace Empleados
             this.BtnBorrar.UseVisualStyleBackColor = true;
             this.BtnBorrar.Click += new System.EventHandler(this.Borrar);
             // 
-            // BtnGuardar
+            // BtnActualizar
             // 
-            this.BtnGuardar.Image = global::Empleados.Properties.Resources.disquete__3_;
-            this.BtnGuardar.Location = new System.Drawing.Point(930, 429);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(110, 116);
-            this.BtnGuardar.TabIndex = 31;
-            this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnGuardar.UseVisualStyleBackColor = true;
-            this.BtnGuardar.Click += new System.EventHandler(this.Guardar);
+            this.BtnActualizar.Image = global::Empleados.Properties.Resources.disquete__3_;
+            this.BtnActualizar.Location = new System.Drawing.Point(930, 429);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(110, 116);
+            this.BtnActualizar.TabIndex = 31;
+            this.BtnActualizar.Text = "Actualizar";
+            this.BtnActualizar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnActualizar.UseVisualStyleBackColor = true;
+            this.BtnActualizar.Click += new System.EventHandler(this.Actualizar);
             // 
             // BtnAbajo
             // 
@@ -210,6 +210,7 @@ namespace Empleados
             this.BtnAbajo.Size = new System.Drawing.Size(75, 73);
             this.BtnAbajo.TabIndex = 30;
             this.BtnAbajo.UseVisualStyleBackColor = true;
+            this.BtnAbajo.Click += new System.EventHandler(this.Btn_Abajo);
             // 
             // BtnArriba
             // 
@@ -219,6 +220,7 @@ namespace Empleados
             this.BtnArriba.Size = new System.Drawing.Size(75, 74);
             this.BtnArriba.TabIndex = 29;
             this.BtnArriba.UseVisualStyleBackColor = true;
+            this.BtnArriba.Click += new System.EventHandler(this.Btn_Arriba);
             // 
             // BtnSalir
             // 
@@ -259,6 +261,7 @@ namespace Empleados
             this.LstApellidos.Name = "LstApellidos";
             this.LstApellidos.Size = new System.Drawing.Size(120, 132);
             this.LstApellidos.TabIndex = 37;
+            this.LstApellidos.Click += new System.EventHandler(this.apellidos_click);
             // 
             // LstOficio
             // 
@@ -268,6 +271,7 @@ namespace Empleados
             this.LstOficio.Name = "LstOficio";
             this.LstOficio.Size = new System.Drawing.Size(120, 132);
             this.LstOficio.TabIndex = 38;
+            this.LstOficio.Click += new System.EventHandler(this.oficio_click);
             // 
             // LstSalario
             // 
@@ -277,6 +281,7 @@ namespace Empleados
             this.LstSalario.Name = "LstSalario";
             this.LstSalario.Size = new System.Drawing.Size(120, 132);
             this.LstSalario.TabIndex = 39;
+            this.LstSalario.Click += new System.EventHandler(this.salario_click);
             // 
             // LstFechaAlta
             // 
@@ -286,6 +291,7 @@ namespace Empleados
             this.LstFechaAlta.Name = "LstFechaAlta";
             this.LstFechaAlta.Size = new System.Drawing.Size(120, 132);
             this.LstFechaAlta.TabIndex = 40;
+            this.LstFechaAlta.Click += new System.EventHandler(this.fecha_click);
             // 
             // LstComision
             // 
@@ -295,14 +301,21 @@ namespace Empleados
             this.LstComision.Name = "LstComision";
             this.LstComision.Size = new System.Drawing.Size(120, 132);
             this.LstComision.TabIndex = 41;
+            this.LstComision.Click += new System.EventHandler(this.comision_click);
             // 
             // Lstbuscarpor
             // 
             this.Lstbuscarpor.FormattingEnabled = true;
             this.Lstbuscarpor.ItemHeight = 16;
-            this.Lstbuscarpor.Location = new System.Drawing.Point(203, 529);
+            this.Lstbuscarpor.Items.AddRange(new object[] {
+            "APELLIDO",
+            "OFICIO",
+            "SALARIO",
+            "FECHA_ALTA",
+            "COMISIÓN"});
+            this.Lstbuscarpor.Location = new System.Drawing.Point(189, 548);
             this.Lstbuscarpor.Name = "Lstbuscarpor";
-            this.Lstbuscarpor.Size = new System.Drawing.Size(120, 132);
+            this.Lstbuscarpor.Size = new System.Drawing.Size(112, 84);
             this.Lstbuscarpor.TabIndex = 47;
             // 
             // TxtApellido
@@ -330,6 +343,7 @@ namespace Empleados
             // 
             this.TxtFechaAlta.Location = new System.Drawing.Point(477, 453);
             this.TxtFechaAlta.Name = "TxtFechaAlta";
+            this.TxtFechaAlta.ReadOnly = true;
             this.TxtFechaAlta.Size = new System.Drawing.Size(120, 22);
             this.TxtFechaAlta.TabIndex = 52;
             // 
@@ -391,7 +405,7 @@ namespace Empleados
             this.Controls.Add(this.BtnBuscar);
             this.Controls.Add(this.BtnNuevo);
             this.Controls.Add(this.BtnBorrar);
-            this.Controls.Add(this.BtnGuardar);
+            this.Controls.Add(this.BtnActualizar);
             this.Controls.Add(this.BtnAbajo);
             this.Controls.Add(this.BtnArriba);
             this.Controls.Add(this.LblIgual);
@@ -426,7 +440,7 @@ namespace Empleados
         private System.Windows.Forms.Label LblIgual;
         private System.Windows.Forms.Button BtnArriba;
         private System.Windows.Forms.Button BtnAbajo;
-        private System.Windows.Forms.Button BtnGuardar;
+        private System.Windows.Forms.Button BtnActualizar;
         private System.Windows.Forms.Button BtnBorrar;
         private System.Windows.Forms.Button BtnNuevo;
         private System.Windows.Forms.Button BtnBuscar;
